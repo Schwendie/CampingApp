@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CampingApp</string>
+    <string name="planning_button">Planning</string>
+    <string name="camping_button">Camping</string>
+    <string name="surviving_button">Surviving</string>
+    <string name="camping_list">Camping References</string>
+    <string name="checklist_button">Gear Checklist</string>
+    <string name="new_check">New Checklist</string>
+</resources>
