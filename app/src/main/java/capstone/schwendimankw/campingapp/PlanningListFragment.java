@@ -16,7 +16,7 @@ public class PlanningListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        getActivity().setTitle("Checklists");
+        getActivity().setTitle(R.id.planning_button);
     }
 
     @Override
