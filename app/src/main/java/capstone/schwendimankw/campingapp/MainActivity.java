@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
         mPlanningButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(MainActivity.this, PlanningListActivity.class);
+                startActivity(i);
             }
         });
 

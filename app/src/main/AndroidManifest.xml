@@ -20,6 +20,14 @@
             android:label="@string/app_name">
 
         </activity>
+        <activity android:name=".PlanningListActivity"
+            android:label="@string/app_name">
+
+        </activity>
+        <activity android:name=".ItemsActivity"
+            android:label="@string/app_name">
+
+        </activity>
         <activity android:name=".ReferenceActivity">
 
         </activity>

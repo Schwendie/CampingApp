@@ -7,4 +7,5 @@
     <string name="checklist_button">Gear Checklist</string>
     <string name="new_check">New Checklist</string>
     <string name="planning_list">Planning Section</string>
+    <string name="item_name_hint">Enter the name of your gear.</string>
 </resources>
