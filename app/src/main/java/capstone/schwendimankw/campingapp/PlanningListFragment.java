@@ -35,7 +35,7 @@ public class PlanningListFragment extends ListFragment {
         Checklist c = ((CheckAdapter)getListAdapter()).getItem(position);
 
         Intent i = new Intent(getActivity(), ChecklistActivity.class);
-        i.putExtra(ChecklistFragment.EXTRA_CHECK_ID, c.getId());
+        //i.putExtra(ChecklistFragment.EXTRA_CHECK_ID, c.getId());
         startActivity(i);
     }
 

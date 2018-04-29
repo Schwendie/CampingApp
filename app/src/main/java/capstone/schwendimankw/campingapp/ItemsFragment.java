@@ -21,8 +21,9 @@ public class ItemsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UUID itemId = (UUID)getActivity().getIntent()
-                .getSerializableExtra(EXTRA_ITEMS_ID);
+        UUID itemId = (UUID)getArguments().getSerializable(EXTRA_ITEMS_ID);
+
+        mItems = Gear.get(getActivity()).getItem(itemId);
     }
 
     @Override
@@ -49,5 +50,15 @@ public class ItemsFragment extends Fragment {
         });
 
         return v;
+    }
+
+    public static ItemsFragment newInstance(UUID itemId) {
+        Bundle args = new Bundle();
+        args.putSerializable(EXTRA_ITEMS_ID, itemId);
+
+        ItemsFragment fragment = new ItemsFragment();
+        fragment.setArguments(args);
+
+        return fragment;
     }
 }

@@ -24,7 +24,11 @@
             android:label="@string/app_name">
 
         </activity>
-        <activity android:name=".ItemsActivity"
+        <activity android:name=".ChecklistActivity"
+            android:label="@string/app_name">
+
+        </activity>
+        <activity android:name=".ItemsPagerActivity"
             android:label="@string/app_name">
 
         </activity>

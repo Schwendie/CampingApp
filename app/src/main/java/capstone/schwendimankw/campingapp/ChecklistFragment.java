@@ -25,12 +25,12 @@ public class ChecklistFragment extends ListFragment {
         UUID checklistId = (UUID)getActivity().getIntent()
                 .getSerializableExtra(EXTRA_CHECK_ID);
 
-        mChecklist = ListPlanner.get(getActivity()).getCheck(checklistId);
+        //mChecklist = ListPlanner.get(getActivity()).getCheck(checklistId);
 
         // ********************************************************************
         // Take a look at later -
         // This may make the checklist blank each time it's loaded?
-        mItems = new ArrayList<Items>();
+        mItems = Gear.get(getActivity()).getItems();
 
         ItemsAdapter adapter = new ItemsAdapter(mItems);
         setListAdapter(adapter);
@@ -40,9 +40,15 @@ public class ChecklistFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         Items it = ((ItemsAdapter)getListAdapter()).getItem(position);
 
-        Intent i = new Intent(getActivity(), ItemsActivity.class);
+        Intent i = new Intent(getActivity(), ItemsPagerActivity.class);
         i.putExtra(ItemsFragment.EXTRA_ITEMS_ID, it.getId());
         startActivity(i);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((ItemsAdapter)getListAdapter()).notifyDataSetChanged();
     }
 
     private class ItemsAdapter extends ArrayAdapter<Items> {

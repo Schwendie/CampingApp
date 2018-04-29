@@ -7,6 +7,11 @@ public class Items {
     private String mName;
     private UUID mId;
 
+    public Items() {
+        mId = UUID.randomUUID();
+        mName = "";
+    }
+
     public Items(String name) {
         mId = UUID.randomUUID();
         mName = name;
