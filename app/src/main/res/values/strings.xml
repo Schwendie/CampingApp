@@ -11,4 +11,5 @@
     <string name="new_item">New Item</string>
     <string name="empty_view_text_view">There are no items...</string>
     <string name="empty_view_add_button">Add new item</string>
+    <string name="delete_items">Delete</string>
 </resources>

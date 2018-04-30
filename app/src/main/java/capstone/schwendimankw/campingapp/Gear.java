@@ -51,6 +51,10 @@ public class Gear {
         mItems.add(i);
     }
 
+    public void deleteItems(Items i) {
+        mItems.remove(i);
+    }
+
     public boolean saveItems() {
         try {
             mSerializer.saveItems(mItems);
