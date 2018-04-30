@@ -8,4 +8,7 @@
     <string name="new_check">New Checklist</string>
     <string name="planning_list">Planning Section</string>
     <string name="item_name_hint">Enter the name of your gear.</string>
+    <string name="new_item">New Item</string>
+    <string name="empty_view_text_view">There are no items...</string>
+    <string name="empty_view_add_button">Add new item</string>
 </resources>

@@ -1,10 +1,16 @@
 package capstone.schwendimankw.campingapp;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NavUtils;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -24,8 +30,10 @@ public class ItemsFragment extends Fragment {
         UUID itemId = (UUID)getArguments().getSerializable(EXTRA_ITEMS_ID);
 
         mItems = Gear.get(getActivity()).getItem(itemId);
+
     }
 
+    @TargetApi(11)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_item, parent, false);
@@ -60,5 +68,11 @@ public class ItemsFragment extends Fragment {
         fragment.setArguments(args);
 
         return fragment;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Gear.get(getActivity()).saveItems();
     }
 }
