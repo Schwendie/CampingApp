@@ -9,7 +9,11 @@
     <string name="planning_list">Planning Section</string>
     <string name="item_name_hint">Enter the name of your gear.</string>
     <string name="new_item">New Item</string>
-    <string name="empty_view_text_view">There are no items...</string>
+    <string name="empty_view_text_view">There are no items&#8230;</string>
     <string name="empty_view_add_button">Add new item</string>
     <string name="delete_items">Delete</string>
+    <string name="delete_checklist">Delete</string>
+    <string name="date_picker_title">Date of Trip:</string>
+    <string name="date_picker_checklist_title">New Checklist Title:</string>
+    <string name="checklist_title_hint">Enter the title of your checklist&#8230;</string>
 </resources>

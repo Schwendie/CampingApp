@@ -71,4 +71,50 @@ public class CampingAppJSONSerializer {
                 writer.close();
         }
     }
+
+    public ArrayList<Checklist> loadChecklist() throws IOException, JSONException {
+        ArrayList<Checklist> checklists = new ArrayList<Checklist>();
+        BufferedReader reader = null;
+        try {
+            // Open and read the file into a StringBuilder
+            InputStream in = mContext.openFileInput(mFileName);
+            reader = new BufferedReader(new InputStreamReader(in));
+            StringBuilder jsonString = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                // Line breaks are omitted and irrelevant
+                jsonString.append(line);
+            }
+            // Parse the JSON using JSONTokener
+            JSONArray array = (JSONArray) new JSONTokener(jsonString.toString())
+                    .nextValue();
+            // Build the array of checklists from JSONObjects
+            for (int i = 0; i < array.length(); i++) {
+                checklists.add(new Checklist(array.getJSONObject(i)));
+            }
+        } catch (FileNotFoundException e) {
+            // Ignore this one; it happens when starting fresh
+        } finally {
+            if (reader != null)
+                reader.close();
+        }
+        return checklists;
+    }
+
+    public void saveChecklist(ArrayList<Checklist> checklists) throws JSONException, IOException {
+        JSONArray array = new JSONArray();
+        for (Checklist c : checklists)
+            array.put(c.toJSON());
+
+        Writer writer = null;
+        try {
+            OutputStream out = mContext
+                    .openFileOutput(mFileName, Context.MODE_PRIVATE);
+            writer = new OutputStreamWriter(out);
+            writer.write(array.toString());
+        } finally {
+            if (writer != null)
+                writer.close();
+        }
+    }
 }

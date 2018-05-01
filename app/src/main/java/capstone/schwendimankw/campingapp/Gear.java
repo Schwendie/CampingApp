@@ -53,6 +53,7 @@ public class Gear {
 
     public void deleteItems(Items i) {
         mItems.remove(i);
+        saveItems();
     }
 
     public boolean saveItems() {

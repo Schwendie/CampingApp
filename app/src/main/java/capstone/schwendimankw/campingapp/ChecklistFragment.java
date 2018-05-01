@@ -105,7 +105,7 @@ public class ChecklistFragment extends ListFragment {
 
                 @Override
                 public void onDestroyActionMode(ActionMode actionMode) {
-                    // Required, but not used in this implementation
+            // Required, but not used in this implementation
                 }
             });
         }
@@ -131,6 +131,12 @@ public class ChecklistFragment extends ListFragment {
     public void onResume() {
         super.onResume();
         ((ItemsAdapter)getListAdapter()).notifyDataSetChanged();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Gear.get(getActivity()).saveItems();
     }
 
     @Override
@@ -198,11 +204,5 @@ public class ChecklistFragment extends ListFragment {
 
             return convertView;
         }
-    }
-
-    private void addAnItem() {
-        Items items = new Items();
-        Gear.get(getActivity()).addItem(items);
-
     }
 }
