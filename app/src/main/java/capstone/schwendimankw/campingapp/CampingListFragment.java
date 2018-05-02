@@ -35,9 +35,29 @@ public class CampingListFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         Reference r = ((ReferenceAdapter)getListAdapter()).getItem(position);
 
+        String title = r.getTitle();
+        String url = r.getURL();
+        int listIconId = r.getListIconId();
+
+        Intent i;
+
+        switch (listIconId) {
+            case 0:
+                // Orienteering Activity
+                i = new Intent(getActivity(), OrienteeringActivity.class);
+                startActivity(i);
+                break;
+            default:
+                break;
+
+        }
+
         // Start ReferenceActivity
-        Intent i = new Intent(getActivity(), ReferenceActivity.class);
-        startActivity(i);
+        /*Intent i = new Intent(getActivity(), ReferenceActivity.class);
+        i.putExtra(ReferenceFragment.EXTRA_REF_TITLE, title);
+        i.putExtra(ReferenceFragment.EXTRA_REF_URL, url);
+        i.putExtra(ReferenceFragment.EXTRA_REF_ICON, listIconId);
+        startActivity(i);*/
     }
 
     private class ReferenceAdapter extends ArrayAdapter<Reference> {

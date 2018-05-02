@@ -18,11 +18,7 @@ public class ReferenceManual {
     private ReferenceManual(Context appContext) {
         mAppContext = appContext;
         mReferences = new ArrayList<Reference>();
-        for (int i = 0; i < 100; i++) {
-            Reference r = new Reference();
-            r.setTitle("Reference #" + i);
-            mReferences.add(r);
-        }
+        mReferences.add(new Reference("Orienteering", "file:///android_asset/orienteering.html", 0));
     }
 
     public static ReferenceManual get(Context c) {

@@ -12,7 +12,6 @@
         android:layout_alignParentTop="true"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
-        android:text="Reference Title"
         android:textStyle="bold" />
 
     <ImageView
@@ -20,11 +19,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
         android:maxHeight="42dp"
         android:maxWidth="42dp"
-        android:scaleType="fitEnd"
-        android:src="@drawable/netero_character" />
+        android:scaleType="fitEnd" />
 
 </RelativeLayout>

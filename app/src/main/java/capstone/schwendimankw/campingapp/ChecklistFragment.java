@@ -42,8 +42,7 @@ public class ChecklistFragment extends ListFragment {
 
         setHasOptionsMenu(true);
 
-        UUID checklistId = (UUID)getActivity().getIntent()
-                .getSerializableExtra(EXTRA_CHECK_ID);
+        UUID checklistId = (UUID)getArguments().getSerializable(EXTRA_CHECK_ID);
 
         mChecklist = ListPlanner.get(getActivity()).getCheck(checklistId);
 
@@ -57,7 +56,12 @@ public class ChecklistFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, parent, savedInstanceState);
 
+        View v = inflater.inflate(R.layout.fragment_checklist, parent, false);
+
+        View empty = v.findViewById(R.id.empty_view);
+
         ListView listView = (ListView)view.findViewById(android.R.id.list);
+        listView.setEmptyView(empty);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
             // Use floating context menus on Froyo and Gingerbread
@@ -181,6 +185,16 @@ public class ChecklistFragment extends ListFragment {
                 return true;
         }
         return super.onContextItemSelected(item);
+    }
+
+    public static ChecklistFragment newInstance(UUID checklistId) {
+        Bundle args = new Bundle();
+        args.putSerializable(EXTRA_CHECK_ID, checklistId);
+
+        ChecklistFragment fragment = new ChecklistFragment();
+        fragment.setArguments(args);
+
+        return fragment;
     }
 
     private class ItemsAdapter extends ArrayAdapter<Items> {

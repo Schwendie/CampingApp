@@ -114,7 +114,7 @@ public class PlanningListFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         Checklist c = ((CheckAdapter)getListAdapter()).getItem(position);
 
-        Intent i = new Intent(getActivity(), ChecklistActivity.class);
+        Intent i = new Intent(getActivity(), ChecklistPagerActivity.class);
         i.putExtra(ChecklistFragment.EXTRA_CHECK_ID, c.getId());
         startActivity(i);
     }
@@ -204,6 +204,10 @@ public class PlanningListFragment extends ListFragment {
 
             CheckAdapter adapter = (CheckAdapter)getListAdapter();
             adapter.notifyDataSetChanged();
+
+            Intent i = new Intent(getActivity(), ChecklistPagerActivity.class);
+            i.putExtra(ChecklistFragment.EXTRA_CHECK_ID, id);
+            startActivity(i);
         }
     }
 

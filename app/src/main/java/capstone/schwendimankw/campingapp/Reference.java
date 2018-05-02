@@ -10,15 +10,18 @@ public class Reference extends Object {
 
     private UUID mId;
     private String mTitle;
+    private String mURL;
     private int mListIconId;
 
     public Reference() {
         mId = UUID.randomUUID();
     }
 
-    public Reference(int ListIconId) {
+    public Reference(String title, String url, int listIconId) {
         mId = UUID.randomUUID();
-        mListIconId = ListIconId;
+        mListIconId = listIconId;
+        mURL = url;
+        mTitle = title;
     }
 
     @Override
@@ -36,5 +39,13 @@ public class Reference extends Object {
 
     public void setTitle(String title) {
         mTitle = title;
+    }
+
+    public String getURL() {
+        return mURL;
+    }
+
+    public int getListIconId() {
+        return mListIconId;
     }
 }
