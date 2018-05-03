@@ -19,6 +19,7 @@ public class ReferenceManual {
         mAppContext = appContext;
         mReferences = new ArrayList<Reference>();
         mReferences.add(new Reference("Orienteering", "file:///android_asset/orienteering.html", 0));
+        mReferences.add(new Reference("Fire", "file:///android_asset/fire.html", 1));
     }
 
     public static ReferenceManual get(Context c) {
